@@ -1,0 +1,27 @@
+<p id="notice" style="color:green;"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+<p>
+	<%= image_tag @product.avatar.try(:url)%>
+</p>
+
+ 
+<h2>Comments</h2>
+<div id="comments-show">
+	<%= render @product.comments %>
+
+</div>
+ 
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
