@@ -6,8 +6,43 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body style="background: gray;">
+<head>
  
+</head>
+<body style="background: pink;">
+<div class="links-section">
+<%= link_to "home", '/' %>|
+
+<%= link_to "My Blog", products_path %>|
+
+<%= link_to "Profile", '/home/profile' %>|
+<%= link_to "Photo", '/home/photo' %>|
+<%#= link_to "home", root_url %>
+<%= link_to "Setting",  edit_user_registration_path %>|
+
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
+</div>
+
+
+
+ <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+       <div id="user_nav">
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?|
+   welcome <%=current_user.user_name %> 
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <% end %>
+</div>
+<style type="text/css">
+  .links-section{
+    float: right;
+  }
+</style>
 <%= yield %>
  
 </body>

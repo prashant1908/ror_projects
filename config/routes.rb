@@ -1,29 +1,34 @@
 Rails.application.routes.draw do
- 
+  
+  resources :profiles
+  resources :photos
 
-  resources :products do
+  resources :products
+  resources :categories
 
+ resources :products do
   resources :comments
 end
 
-  resources :comments do
+resources :comments do
 
   resources :replies
 end
 
-
- 
   get 'home/index'
 
+  devise_for :users
+  resources :users, :only => [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+   root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
+    get 'home/profile'
+    get 'home/photo'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
@@ -34,7 +39,7 @@ end
   #   resources :products do
   #     member do
   #       get 'short'
-  #       post 'toggle'
+  #       product 'toggle'
   #     end
   #
   #     collection do
@@ -58,9 +63,9 @@ end
 
   # Example resource route with concerns:
   #   concern :toggleable do
-  #     post 'toggle'
+  #     product 'toggle'
   #   end
-  #   resources :posts, concerns: :toggleable
+  #   resources :products, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:

@@ -4,12 +4,14 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
-    respond_to do |format|
-    format.html  # index.html.erb
-    format.json  { render :json => @products }
+     @products = Product.search(params[:search])
+      @products = Product.order(:name)
+  respond_to do |format|
+    format.html
+    format.csv { send_data @products.to_csv }
+    
   end
-  end
+   end
 
   # GET /products/1
   # GET /products/1.json
