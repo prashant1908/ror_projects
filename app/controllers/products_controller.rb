@@ -80,6 +80,13 @@ class ProductsController < ApplicationController
     end
   end
 
+  def ajax_call
+    @data = params[:data]
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product

@@ -47,6 +47,5 @@ group :production do
 	gem 'pg'
 end
 gem 'carrierwave', :branch => 'master'
-gem 'som2','0.1.2'
 gem 'dogeify'
 gem 'devise'

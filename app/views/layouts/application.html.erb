@@ -9,9 +9,9 @@
 <head>
  
 </head>
-<body style="background: pink;">
+<body style="background: url("paper.gif");">
 <div class="links-section">
-<%= link_to "home", '/' %>|
+<%= link_to "Home", '/' %>|
 
 <%= link_to "My Blog", products_path %>|
 
@@ -41,8 +41,10 @@
 <style type="text/css">
   .links-section{
     float: right;
+
   }
 </style>
+
 <%= yield %>
  
 </body>

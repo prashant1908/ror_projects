@@ -15,6 +15,8 @@ resources :comments do
   resources :replies
 end
 
+post 'products/ajax_call'
+
   get 'home/index'
 
   devise_for :users

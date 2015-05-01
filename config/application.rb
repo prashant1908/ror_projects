@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'som2'
 require 'dogeify'
 require 'csv'
 
